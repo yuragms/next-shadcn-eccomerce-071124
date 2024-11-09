@@ -1,5 +1,4 @@
 import { APP_NAME } from '@/lib/constants';
-import { rootCertificates } from 'tls';
 
 const Footer = () => {
   return (

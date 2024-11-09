@@ -1,7 +1,5 @@
 import ProductList from '@/components/shared/product/product-list';
-import { Button } from '@/components/ui/button';
 import sampleData from '@/lib/sample-data';
-import Image from 'next/image';
 
 export default function Home() {
   return (
