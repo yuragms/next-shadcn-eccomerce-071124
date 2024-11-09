@@ -34,4 +34,5 @@ export const products = pgTable(
       productSlugIdx: uniqueIndex('product_slug_idx').on(table.slug),
     };
   }
+  //   (table) => [uniqueIndex('product_slug_idx').on(table.slug)]
 );
