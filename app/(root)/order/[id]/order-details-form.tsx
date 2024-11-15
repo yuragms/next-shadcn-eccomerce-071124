@@ -179,17 +179,6 @@ export default function OrderDetailsForm({
                     />
                   </PayPalScriptProvider>
                 </div>
-              )}{' '}
-              {!isPaid && paymentMethod === 'PayPal' && (
-                <div>
-                  <PayPalScriptProvider options={{ clientId: paypalClientId }}>
-                    <PrintLoadingState />
-                    <PayPalButtons
-                      createOrder={handleCreatePayPalOrder}
-                      onApprove={handleApprovePayPalOrder}
-                    />
-                  </PayPalScriptProvider>
-                </div>
               )}
             </CardContent>
           </Card>
