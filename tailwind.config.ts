@@ -1,7 +1,8 @@
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
+import { withUt } from 'uploadthing/tw';
 
-const config: Config = {
+const config = withUt({
   darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -74,5 +75,5 @@ const config: Config = {
     },
   },
   plugins: [require('tailwindcss-animate')],
-};
+});
 export default config;
