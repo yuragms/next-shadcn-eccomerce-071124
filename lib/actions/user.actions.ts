@@ -6,6 +6,7 @@ import {
   shippingAddressSchema,
   signInFormSchema,
   signUpFormSchema,
+  updateUserSchema,
 } from '../validator';
 import { formatError } from '../utils';
 import { hashSync } from 'bcrypt-ts-edge';

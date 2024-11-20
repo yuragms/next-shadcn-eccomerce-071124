@@ -120,6 +120,21 @@ export async function getAllProducts({
     totalPages: Math.ceil(dataCount[0].count / limit),
   };
 }
+export async function getAllCategories() {
+  const data = await db
+    .selectDistinctOn([products.category], { name: products.category })
+    .from(products)
+    .orderBy(products.category);
+  return data;
+}
+export async function getFeaturedProducts() {
+  const data = await db.query.products.findMany({
+    where: eq(products.isFeatured, true),
+    orderBy: [desc(products.createdAt)],
+    limit: 4,
+  });
+  return data;
+}
 // DELETE
 export async function deleteProduct(id: string) {
   try {
