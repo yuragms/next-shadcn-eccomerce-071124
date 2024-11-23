@@ -273,7 +273,8 @@ export const updateOrderToPaid = async ({
   if (!updatedOrder) {
     throw new Error('Order not found');
   }
-  sendPurchaseReceipt({ order: updatedOrder });
+  console.log('sendPurchaseReceipt');
+  await sendPurchaseReceipt({ order: updatedOrder });
 };
 
 export async function updateOrderToPaidByCOD(orderId: string) {
