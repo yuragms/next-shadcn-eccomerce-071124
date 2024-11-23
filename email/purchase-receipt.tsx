@@ -1,8 +1,10 @@
 import sampleData from '@/lib/sample-data';
 import { formatCurrency } from '@/lib/utils';
 import { Order } from '@/types';
+
 type OrderInformationProps = {
   order: Order;
+  serverUrl: string; // Добавляем новый проп
 };
 import {
   Body,
@@ -18,6 +20,7 @@ import {
   Tailwind,
   Text,
 } from '@react-email/components';
+// console.log('NEXT_PUBLIC_SERVER_URL', process.env.NEXT_PUBLIC_SERVER_URL);
 
 PurchaseReceiptEmail.PreviewProps = {
   order: {
@@ -60,9 +63,15 @@ PurchaseReceiptEmail.PreviewProps = {
       email_address: 'bS8Rn@example.com',
     },
   },
+  serverUrl: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
 } satisfies OrderInformationProps;
+
 const dateFormatter = new Intl.DateTimeFormat('en', { dateStyle: 'medium' });
-export default function PurchaseReceiptEmail({ order }: OrderInformationProps) {
+export default function PurchaseReceiptEmail({
+  order,
+  serverUrl,
+}: OrderInformationProps) {
+  // console.log('NEXT_PUBLIC_SERVER_URL', process.env.NEXT_PUBLIC_SERVER_URL);
   return (
     <Html>
       <Preview>View order receipt</Preview>
@@ -107,7 +116,7 @@ export default function PurchaseReceiptEmail({ order }: OrderInformationProps) {
                       className="rounded"
                       src={
                         item.image.startsWith('/')
-                          ? `${process.env.NEXT_PUBLIC_SERVER_URL}${item.image}`
+                          ? `${serverUrl}${item.image}`
                           : item.image
                       }
                     />
