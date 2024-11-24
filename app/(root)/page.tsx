@@ -1,5 +1,7 @@
+import EcommerceFeatures from '@/components/shared/product/ecommerce-features';
 import ProductCarousel from '@/components/shared/product/product-carousel';
 import ProductList from '@/components/shared/product/product-list';
+import ProductPromotion from '@/components/shared/product/product-promotion';
 import {
   getFeaturedProducts,
   getLatestProducts,
@@ -18,6 +20,8 @@ export default async function Home() {
         {/* <h2 className="h2-bold">Latest Products</h2> */}
         {/* <ProductList data={sampleData.products} /> */}
         <ProductList title="Newest Arrivals" data={latestProducts} />
+        <ProductPromotion />
+        <EcommerceFeatures />
       </div>
     </div>
   );
