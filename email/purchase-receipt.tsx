@@ -1,3 +1,4 @@
+import { NEXT_PUBLIC_SERVER_URL } from '@/lib/constants';
 import sampleData from '@/lib/sample-data';
 import { formatCurrency } from '@/lib/utils';
 import { Order } from '@/types';
@@ -107,7 +108,7 @@ export default function PurchaseReceiptEmail({ order }: OrderInformationProps) {
                       className="rounded"
                       src={
                         item.image.startsWith('/')
-                          ? `${process.env.NEXT_PUBLIC_SERVER_URL}${item.image}`
+                          ? `${NEXT_PUBLIC_SERVER_URL}${item.image}`
                           : item.image
                       }
                     />
